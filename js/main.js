@@ -193,3 +193,94 @@ function secondToTime(sec) {
   let second = sec % 60;
   return `${hour} : ${min} : ${second}`;
 }
+
+
+// OBJECT 
+
+// TASK 01
+
+let myCar = {
+  make: 'Ford',
+  model: 'Mustang',
+  year: '1969',
+  speed: '120',
+};
+
+for (let key in myCar) {
+  console.log (`Властивість ${key} має значення ${myCar[key]}`);
+}
+
+function whatTimeNeed (dis) {
+  let result = dis / myCar.speed;
+  let relax = 0;
+  for (let hour = 1; hour <= result; hour ++) {
+    if(hour % 5 == 0) {
+      relax ++;
+      result ++;
+    }
+  }
+  if (relax == 0) {
+    console.log (`Вам не потрібен відпочинок`);
+  } else {
+    console.log (`Вам потрібен відпочинок`);
+  }
+  console.log (`${Math.round (result)} годин ви будете в дорозі`);
+}
+console.log(whatTimeNeed(740));
+
+// TASK 02
+function Fraction (numerator, denominator) {
+  this.numerator = numerator;
+  this.denominator = denominator;
+} 
+let firstNumber = new Fraction (1, 2);
+let secondNumber = new Fraction (3, 4);
+
+function additionFraction (obj1, obj2) {
+  let resultNumerator = obj1.numerator + obj2.numerator;
+  let resultDenominator = obj1.denominator + obj2.denominator;
+  console.log (`${resultNumerator} / ${resultDenominator}`);
+}
+additionFraction(firstNumber, secondNumber);
+
+function subtractionFraction (obj1, obj2) {
+  let resultNumerator = obj1.numerator - obj2.numerator;
+  let resultDenominator = obj1.denominator - obj2.denominator;
+  console.log (`${resultNumerator} / ${resultDenominator}`);
+}
+subtractionFraction(firstNumber, secondNumber);
+
+function multiplicationFraction (obj1, obj2) {
+  let resultNumerator = obj1.numerator * obj2.numerator;
+  let resultDenominator = obj1.denominator * obj2.denominator;
+  console.log (`${resultNumerator} / ${resultDenominator}`);
+}
+multiplicationFraction(firstNumber, secondNumber);
+
+function divisionFraction (obj1, obj2) {
+  let resultNumerator = obj1.numerator * obj2.denominator;
+  let resultDenominator = obj1.denominator * obj2.numerator;
+  console.log (`${resultNumerator} / ${resultDenominator}`);
+}
+divisionFraction(firstNumber, secondNumber);
+
+
+// TASK 03
+
+let myTime = {
+  hour: 4,
+  minutes: 20,
+  seconds: 35,
+};
+
+function showMyTime () {
+  for (let key in myTime) {
+    console.log(myTime[key]);
+  }
+}
+showMyTime();
+
+function addSeconds (a) {
+  return myTime.seconds + a;
+}
+console.log(addSeconds(20));
